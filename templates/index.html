@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            {% for share in shares %}
+                <tr>
+                    <td>{{ share["stock"] }}</td>
+                    <td>{{ share["full_name"] }}</td>
+                    <td>{{ share["shares"] }}</td>
+                    <td>{{ curr_price[share["stock"]] }}</td>
+                    <td>{{ (share["shares"] * curr_price[share["stock"]])|usd }}</td>
+                </tr>
+            {% endfor %}
+            <tfoot>
+                <tr>
+                    <th colspan="4">Cash</th>
+                    <td>{{ cash|usd }}</td>
+                </tr>
+                <tr>
+                    <th colspan="4">TOTAL</th>
+                    <td>{{ (cash + total_price)|usd }}</td>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
+    <form method="post" id="addCash">
+        <div class="mb-2">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="addCash" name="addCash" placeholder="e.g. 100" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Money</button>
+    </form>
+{% endblock %}
