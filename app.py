@@ -271,7 +271,7 @@ def sell():
     # GET request, send to html currently owned stocks
     else:
         stocks = []
-        rows = db.execute("SELECT stock FROM transactions")
+        rows = db.execute("SELECT stock FROM transactions WHERE user = ?", session["user_id"])
         for stock in rows:
             stocks.append(stock['stock'])
         return render_template("sell.html", stocks=stocks)
