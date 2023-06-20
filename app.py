@@ -175,7 +175,7 @@ def quote():
         if not SYMBOL:
             return apology("must provide symbol", 400)
         if not lookup(SYMBOL):
-            return apology("must provide valid symbol", 400)
+            return apology("must provide valid symbol or API free trial expired", 400)
         # Pass to html file with correct formatting
         return render_template("quoted.html", symbol=lookup(SYMBOL)['name'] + " (" + SYMBOL + ")", price=lookup(SYMBOL)['price'])
 
