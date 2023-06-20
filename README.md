@@ -1,5 +1,5 @@
 StockTradeApp
-A basic stock trading simulation app created using IEX's stock API, Python, SQL, and Flask. Fun project completed as part of CS50
+A basic stock trading simulation app created using IEX's stock API, Python, SQL, and Flask. Fun project, demo link: https://stocktradeapp.onrender.com *May not work since IEX API data is on a paid tier. Currently using free trial.
 
 # Run app locally
 
